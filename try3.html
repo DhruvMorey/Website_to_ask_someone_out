@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevents overflow of hearts outside the viewport */
+            background: linear-gradient(to right, #ffeded, #ffccd2); /* Romantic gradient background */
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://source.unsplash.com/1920x1080/?romantic'); /* Replace with your anime rom-com image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .heart-rain {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            color: #ff66b2; /* Pink color for hearts */
+            opacity: 0.7; /* Semi-transparent hearts */
+            animation: fallingHeart 3s linear infinite;
+        }
+
+        @keyframes fallingHeart {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .card {
+            perspective: 1000px;
+            width: 400px; /* Increased width */
+            height: 400px;
+            position: relative;
+        }
+
+        .card-container {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            transform-origin: center center; /* Centered rotation */
+        }
+
+        .card:hover .card-container {
+            transform: rotateX(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .front {
+            transform: rotateX(0deg);
+        }
+
+        .back {
+            transform: rotateX(180deg);
+        }
+
+        h1 {
+            color: #c70039; /* Romantic text color */
+            font-size: 36px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+
+        #yesButton {
+            background: linear-gradient(to right, #4CAF50, #45a049); /* Green gradient for 'Yes' */
+            color: #fff;
+        }
+
+        #noButton {
+            background: linear-gradient(to right, #e74c3c, #e64c3b); /* Red gradient for 'No' */
+            color: #fff;
+            position: relative;
+        }
+
+        #noButton:hover {
+            left: calc(50% + Math.random() * 200 - 100px);
+            top: calc(50% + Math.random() * 200 - 100px);
+        }
+
+        #emoji {
+            font-size: 40px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        #yesButton:hover #emoji {
+            transform: scale(1.5);
+        }
+
+        #noButton:hover #emoji {
+            transform: rotate(180deg) scale(1.5);
+        }
+
+        #responseMessage {
+            color: #333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        .hypnosis {
+            font-size: 18px;
+            color: black;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .hypnosis:before {
+            content: "You want to say yes";
+            display: block;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes hypnosisAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hypnosis:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: hypnosisAnimation 2s linear infinite;
+        }
+    </style>
+    <title>Will You Go Out With Me?</title>
+</head>
+<body>
+    <!-- Heart Emojis -->
+    <div class="heart-rain">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:80px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; right:80px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:160px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:240px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:360px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:400px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:480px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:560px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:660px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:760px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:860px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:960px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; right:160px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; right:280px;">&#10084;&#65039;</div>
+    <!-- Add more heart emojis as needed -->
+
+    <div class="card">
+        <div class="card-container">
+            <div class="card-face front">
+                <h1>Happy Valentine's Day</h1>
+            </div>
+            <div class="card-face back">
+                <h1>Will you go out with me?</h1>
+                <div class="buttons">
+                    <button id="yesButton"><span id="emoji">❤️</span> Yes</button>
+                    <button id="noButton" onclick="return false;"><span id="emoji">❤️</span> No</button>
+                </div>
+                <p id="responseMessage"></p>
+                <div class="hypnosis"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            $("#noButton").on({
+                mouseover:function(){
+                    $(this).css({
+                        left:(Math.random()*200)+"px",
+                        top:(Math.random()*200)+"px",
+                    });
+                    $("#emoji").css("transform", "rotate(180deg) scale(1.5)");
+                }
+            });
+
+            $("#yesButton").on({
+                mouseover:function(){
+                    $("#emoji").css("transform", "scale(1.5)");
+                },
+                click:function(){
+                    $("#responseMessage").text("Yay! I'll make sure you won't regret it, my princess!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
