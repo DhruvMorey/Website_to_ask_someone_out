@@ -1,5 +1,9 @@
 # Romantic Website - Will You Go Out With Me?
 
+[![Watch the video](https://www.instagram.com/p/C2qGZuQOxKW/)
+
+Our goal is to make such a website. Get as creative as you can !!
+
 Welcome to the Romantic Website project! This is a simple webpage created using HTML, CSS, and JavaScript. The webpage features a romantic theme with interactive elements like a flipping card, raining heart emojis, and more.
 
 ## Features
