@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: visible; /* Prevents overflow of hearts outside the viewport */
+            background: linear-gradient(to right, #ffeded, #ffccd2); /* Romantic gradient background */
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20231221/pngtree-blue-aesthetic-abstract-watercolor-clouds-background-image_15539008.png'); /* Replace with your anime rom-com image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .heart-rain {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            color: #ff66b2; /* Pink color for hearts */
+            opacity: 0.7; /* Semi-transparent hearts */
+            animation: fallingHeart 3s linear infinite;
+        }
+
+        @keyframes fallingHeart {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .card {
+            perspective: 1000px;
+            width: 600px; /* Increased width */
+            height: 600px;
+            position: relative;
+        }
+
+        .card-container {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            transform-origin: center center; /* Centered rotation */
+        }
+
+        .card:hover .card-container {
+            transform: rotateX(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+			background-color: #F4C2C2;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .front {
+            transform: rotateX(0deg);
+			background-color: #F4C2C2;
+        }
+
+        .back {
+            transform: rotateX(180deg);
+			background-color: #F4C2C2;
+			position: relative;
+			
+        }
+
+        h1 {
+            color: #c70039; /* Romantic text color */
+            font-size: 36px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            outline: none;
+			margin-top: 10px;
+        }
+
+        #yesButton {
+            background: linear-gradient(to right, #4CAF50, #45a049); /* Green gradient for 'Yes' */
+            color: #fff;
+        }
+
+        #noButton {
+            background: linear-gradient(to right, #e74c3c, #e64c3b); /* Red gradient for 'No' */
+            color: #fff;
+            position: relative;
+        }
+
+        #noButton:hover {
+            left: calc(50% + Math.random() * 200 - 100px);
+            top: calc(50% + Math.random() * 200 - 100px);
+        }
+
+        #emoji {
+            font-size: 40px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        #yesButton:hover #emoji {
+            transform: scale(1.5);
+        }
+
+        #noButton:hover #emoji {
+            transform: rotate(180deg) scale(1.5);
+        }
+
+        #responseMessage {
+            color: #333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+		
+	.gif-container {
+	top : 45px;
+    position: absolute;
+    width: 31%;
+    height: 31%;
+}
+
+.hypnosis-gif {
+    width: 100%;
+    height: auto;
+}
+
+.hypnosis-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+	color : #fade91;
+    text-align: center;
+	font-weight: 900;
+}
+	
+	.left-gif {
+    position: absolute; /* Position the GIF absolutely relative to the body */
+    top: 50%; /* Center the GIF vertically */
+    left: 150px; /* Align the GIF to the left */
+    transform: translateY(-50%); /* Adjust the vertical positioning */
+    width: 450px; /* Set the width of the GIF */
+    height: auto; /* Maintain aspect ratio */
+	z-index: 1000; /* Adjust this value as needed */
+}
+        
+
+
+    </style>
+    <title>Will You Go Out With Me?</title>
+</head>
+<body>
+	<img src="https://i.pinimg.com/originals/d7/d2/cd/d7d2cd60810a40afc13351e53717a7ba.gif" alt="funny GIF" class="left-gif">
+
+    <!-- Heart Emojis -->
+    <div class="heart-rain">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:80px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:absolute; left:300px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:absolute; left:200px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:absolute; left:100px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; right:80px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:160px;">&#10084;&#65039;</div>
+    <div class="heart-rain" style = "position:relative; left:240px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:360px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:400px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:480px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:560px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:660px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:760px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:860px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; left:960px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; right:160px;">&#10084;&#65039;</div>
+	<div class="heart-rain" style = "position:relative; right:280px;">&#10084;&#65039;</div>
+    <!-- Add more heart emojis as needed -->
+
+ <div class="card">
+    <div class="card-container">
+        <div class="card-face front">
+			<img src="https://i.pinimg.com/originals/cb/15/8a/cb158a38ffadbfc5a5028faf343860ea.gif" alt="A cute chibi character" width="250" height="250">
+            <h1>How u doin' babygirl ;)</h1>
+        </div>
+        <div class="card-face back">
+		
+			 <div class="gif-container">
+			<img src="https://i.pinimg.com/originals/de/0e/70/de0e706fbc5c69ebc13ff52366cf7f7d.gif" alt="Hypnosis GIF" class="hypnosis-gif">
+			<p class="hypnosis-text">YOU WANT TO SAY YES</p>
+			</div>
+			
+			 <div style="margin-top: 230px;">
+            <h1>Will you go out with me?</h1>
+			
+            <div class="buttons">
+                <button id="yesButton"><span id="emoji">❤️</span> Yes</button>
+                <button id="noButton" onclick="return false;"><span id="emoji">❤️</span> No</button>
+            </div>
+            <p id="responseMessage"></p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+    <script>
+        $(function(){
+		
+			// Function to generate a random number within a range
+    function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Function to randomize the position of a heart emoji
+    function randomizePosition(element) {
+        var left = getRandomArbitrary(0, window.innerWidth);
+        var top = getRandomArbitrary(0, window.innerHeight);
+        element.css({
+            left: left + 'px',
+            top: top + 'px'
+        });
+    }
+
+    // Function to randomize the animation delay of a heart emoji
+    function randomizeAnimationDelay(element) {
+        var delay = getRandomArbitrary(0, 3); // Adjust the range as needed
+        element.css('animation-delay', delay + 's');
+    }
+
+    // Apply random position and animation delay to each heart emoji
+    $('.heart-rain').each(function() {
+        randomizePosition($(this));
+        randomizeAnimationDelay($(this));
+    });
+		
+				
+            $("#noButton").on({
+                mouseover:function(){
+                    $(this).css({
+                        left:(Math.random()*200)+"px",
+                        top:(Math.random()*200)+"px",
+                    });
+					$('.left-gif').attr('src', 'https://gifdb.com/images/high/cartoon-cute-dog-shocked-pkfeuaq5novs1y8m.gif');
+                    $("#emoji").css("transform", "rotate(180deg) scale(1.5)");
+                }
+            });
+
+            $("#yesButton").on({
+                mouseover:function(){
+					$('.left-gif').attr('src', 'https://gifdb.com/images/high/cute-dog-cartoon-waggling-tail-mm9krholr2shhb83.gif');
+                    $("#emoji").css("transform", "scale(1.5)");
+                },
+                click:function(){
+                    $("#responseMessage").text("Yay! I'll make sure you won't regret it, my princess!");
+					$('.left-gif').attr('src', 'https://i.pinimg.com/originals/66/23/e7/6623e73500f43b8d20aaa35a46465641.gif');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
