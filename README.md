@@ -2,19 +2,14 @@
 
 [![Watch the video](https://www.instagram.com/p/C2qGZuQOxKW/)
 
-Our goal is to make such a website. Get as creative as you can !!
+Our goal is to make a cute and romantic website to ask someone out. Get as creative as you can !!
 
 Welcome to the Romantic Website project! This is a simple webpage created using HTML, CSS, and JavaScript. The webpage features a romantic theme with interactive elements like a flipping card, raining heart emojis, and more.
 
-## Features
+## Introduction
+I have laid out the foundation in the code. It is what i could come up with my imagination.
+Take it from here on and lets see where your imagination takes you!
 
-1. **Flipping Card**: The main content is presented on a flipping card, with a romantic message on the front and a special question on the back.
-
-2. **Interactive Buttons**: Clicking the "Yes" button triggers a delightful response. The "No" button has a unique hover effect where it relocates randomly but is not clickable.
-
-3. **Hypnosis Animation**: On the back of the card, there's a hypnotic animation suggesting a positive response.
-
-4. **Heart Emoji Rain**: Pink heart emojis rain down across the entire page, adding a romantic touch.
 
 ## Getting Started
 
